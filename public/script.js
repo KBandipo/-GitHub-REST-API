@@ -6,7 +6,7 @@ const issueBodyInput = document.getElementById("issueBody");
 
 // Function to make a GET request
 function makeGetRequest() {
-  fetch("https://api.github.com/repos/KBandipo/GitHub-REST-API/issues")
+  fetch("/issues")
     .then((response) => response.json())
     .then((data) => {
       resultDiv.innerHTML = "";
@@ -14,7 +14,7 @@ function makeGetRequest() {
         const issueLink = document.createElement("a");
         issueLink.href = issue.html_url;
         issueLink.textContent = issue.title;
-        issueLink.target = "_blank"; // Open link in a new tab
+        issueLink.target = "_blank";
         resultDiv.appendChild(issueLink);
         resultDiv.appendChild(document.createElement("br"));
       });
@@ -27,14 +27,10 @@ function makePostRequest() {
   const title = issueTitleInput.value;
   const body = issueBodyInput.value;
 
-  // GitHub access token
-  const accessToken = "";
-
-  fetch("https://api.github.com/repos/KBandipo/GitHub-REST-API/issues", {
+  fetch("/issues", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${accessToken}`,
     },
     body: JSON.stringify({ title, body }),
   })
