@@ -7,10 +7,20 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <button id="getButton">GET Request</button>
-    <button id="postButton">POST Request</button>
-    <div id="response"></div>
-
+    <div class="container">
+      <div>
+        <label for="issueTitle">Issue Title:</label><br />
+        <input type="text" id="issueTitle" /><br />
+        <label for="issueBody">Issue Body:</label><br />
+        <textarea id="issueBody"></textarea><br />
+        <button id="postButton">POST Issue</button>
+      </div>
+      <hr />
+      <div>
+        <button id="getButton">GET Issues</button>
+        <div id="result"></div>
+      </div>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
